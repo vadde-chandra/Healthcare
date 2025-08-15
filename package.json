@@ -1,0 +1,14 @@
+{
+  "name": "healthcare-backend",
+  "version": "1.0.0",
+  "description": "Django Healthcare Backend System",
+  "main": "index.js",
+  "scripts": {
+    "setup": "echo 'Django backend setup complete'",
+    "dev": "echo 'Please follow the README instructions to run the Django server'",
+    "build": "echo 'This is a Django backend project. No build step required. Please follow setup instructions in README.md'"
+  },
+  "keywords": ["django", "healthcare", "backend", "api"],
+  "author": "WhatBytes Intern",
+  "license": "MIT"
+}

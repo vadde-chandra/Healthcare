@@ -1,0 +1,406 @@
+{
+  "info": {
+    "name": "Healthcare Backend API",
+    "description": "Complete API collection for Healthcare Backend System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"username\": \"johndoe\",\n  \"password\": \"securepassword123\",\n  \"password_confirm\": \"securepassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/api/auth/register/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "auth", "register", ""]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"securepassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/api/auth/login/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "auth", "login", ""]
+            }
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"{{REFRESH_TOKEN}}\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/api/auth/token/refresh/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "auth", "token", "refresh", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Patients",
+      "item": [
+        {
+          "name": "Get All Patients",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/api/patients/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "patients", ""]
+            }
+          }
+        },
+        {
+          "name": "Create Patient",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Smith\",\n  \"email\": \"jane@example.com\",\n  \"phone\": \"+1234567890\",\n  \"date_of_birth\": \"1990-05-15\",\n  \"gender\": \"F\",\n  \"address\": \"123 Main St, City, State\",\n  \"medical_history\": \"No known allergies\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/api/patients/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "patients", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Patient Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/api/patients/1/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "patients", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Update Patient",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Smith Updated\",\n  \"email\": \"jane.updated@example.com\",\n  \"phone\": \"+1234567890\",\n  \"date_of_birth\": \"1990-05-15\",\n  \"gender\": \"F\",\n  \"address\": \"456 Updated St, City, State\",\n  \"medical_history\": \"No known allergies, updated\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/api/patients/1/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "patients", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Delete Patient",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/api/patients/1/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "patients", "1", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Doctors",
+      "item": [
+        {
+          "name": "Get All Doctors",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/api/doctors/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "doctors", ""]
+            }
+          }
+        },
+        {
+          "name": "Create Doctor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr. Smith Wilson\",\n  \"email\": \"dr.smith@hospital.com\",\n  \"phone\": \"+1987654321\",\n  \"specialization\": \"Cardiology\",\n  \"license_number\": \"MD123456\",\n  \"years_of_experience\": 15,\n  \"consultation_fee\": \"500.00\",\n  \"available_from\": \"09:00:00\",\n  \"available_to\": \"17:00:00\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/api/doctors/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "doctors", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Doctor Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/api/doctors/1/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "doctors", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Update Doctor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr. Smith Wilson Updated\",\n  \"email\": \"dr.smith.updated@hospital.com\",\n  \"phone\": \"+1987654321\",\n  \"specialization\": \"Cardiology\",\n  \"license_number\": \"MD123456\",\n  \"years_of_experience\": 16,\n  \"consultation_fee\": \"600.00\",\n  \"available_from\": \"08:00:00\",\n  \"available_to\": \"18:00:00\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/api/doctors/1/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "doctors", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Delete Doctor",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/api/doctors/1/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "doctors", "1", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Patient-Doctor Mappings",
+      "item": [
+        {
+          "name": "Get All Mappings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/api/mappings/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "mappings", ""]
+            }
+          }
+        },
+        {
+          "name": "Create Patient-Doctor Mapping",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patient\": 1,\n  \"doctor\": 1,\n  \"notes\": \"Initial consultation scheduled\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/api/mappings/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "mappings", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Patient's Doctors",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/api/mappings/1/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "mappings", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Remove Doctor from Patient",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/api/mappings/1/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "mappings", "1", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Get Dashboard Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{ACCESS_TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/api/dashboard/stats/",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "dashboard", "stats", ""]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "ACCESS_TOKEN",
+      "value": "your_access_token_here"
+    },
+    {
+      "key": "REFRESH_TOKEN",
+      "value": "your_refresh_token_here"
+    }
+  ]
+}
